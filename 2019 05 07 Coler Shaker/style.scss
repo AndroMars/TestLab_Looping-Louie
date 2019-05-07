@@ -1,0 +1,71 @@
+body {
+    background #000;
+    height 100vh;
+    overflow hidden;
+}
+
+.water {
+    display flex;
+    justify-content center;
+    align-items center;
+    width 100%;
+    height 100%;
+    background #000;
+    filter blur(10px) contrast(500) hue-rotate(40deg);
+}
+
+.ball {
+    position absolute;
+    top calc(50% - 30px);
+    left calc(50% - 30px);
+    width 60px;
+    height 60px;
+    background #fff;
+
+    @for $i from 1 through 100 {
+        &_wrappernth-child(#{$i}) {
+            animation rotate random(1000)+1000ms -20000ms linear infinite alternate;
+            mix-blend-mode screen;
+        }
+
+        &_wrappernth-child(#{$i}) & {
+            $size random(60)+20px;
+            top calc(50% - $size 2);
+            left calc(50% - $size 2);
+            width $size;
+            height $size;
+            background rgba(random(255), random(255), random(255), 1);
+            $pattern1 random(80)+20;
+            $pattern2 100 - $pattern1;
+            $pattern3 random(80)+20;
+            $pattern4 100 - $pattern3;
+            $pattern5 random(80)+20;
+            $pattern6 100 - $pattern5;
+            $pattern7 random(80)+20;
+            $pattern8 100 - $pattern7;
+            border-radius #{$pattern3 + 0%} #{$pattern4 + 0%} #{$pattern1 + 0%} #{$pattern2 + 0%} #{$pattern5 + 0%} #{$pattern7 + 0%} #{$pattern8 + 0%} #{$pattern6 + 0%};
+            transform translateY(random(200) + 100px);
+            animation slide random(1000)+1000ms -20000ms linear infinite alternate;
+        }
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform rotate(-90deg);
+    }
+
+    100% {
+        transform rotate(90deg);
+    }
+}
+
+@keyframes slide {
+    0% {
+        transform translateY(-300px);
+    }
+
+    100% {
+        transform translateY(0px);
+    }
+}
