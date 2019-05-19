@@ -10,5 +10,3 @@ Looping Louie
 ## volcanoes
 ## explosions
 ## pointless nonsense
-
-This ist probably the best repository
